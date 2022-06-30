@@ -1,0 +1,31 @@
+{{ define "body" }}
+
+    <div class="p-2 text-center">
+
+        <h1 class="text-3xl text-yellow-500">
+            Список гостей на Нашей вечеринке
+        </h1>
+
+        <table class="table border-t-1 border-gray-200">
+            <thead>
+                <th>Имя</th>
+                <th>Email</th>
+                <th>Телефон</th>
+            </thead>
+
+            <tbody>
+                {{ range . }}
+                    {{ if .WillAttend }}
+                        <tr>
+                            <td>{{ .Name }}</td>
+                            <td>{{ .Email }}</td>
+                            <td>{{ .Phone }}</td>
+                        </tr>
+                    {{ end }}
+                {{ end }}
+            </tbody>
+        </table>
+
+    </div>
+
+{{ end }}
